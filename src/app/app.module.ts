@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 
 import { FormsModule } from "@angular/forms"
 import { Ng2CompleterModule } from "ng2-completer";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 @NgModule({
@@ -19,6 +21,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     FormsModule,
     HttpModule,
     HttpClientModule,
+    NgbModule,
     // HttpClient,
     Ng2CompleterModule,
   ],

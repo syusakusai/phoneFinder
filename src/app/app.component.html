@@ -1,46 +1,54 @@
 
-            <h1>Search Phone</h1>
-            <ng2-completer [(ngModel)]="searchPhone" (click)="test(searchPhone)" [datasource]="dataServicePhone" [minSearchLength]="0"></ng2-completer>
-            <p>
-                Test checkboxes
-                </p>
-                
-                <div *ngFor="let country of phoneNameData.phones; let i = index;">
-                  <input  (change)="sendCheckedCountries()" type="checkbox" name="country{{country.brand}}" [(ngModel)]="phoneNameData.phones[i].checked">
-                  <label  for="country{{country.brand}}">{{country.brand}}</label>
-                </div>
-                
-                <!-- <button type="button" (click)="sendCheckedCountries()" *ngIf="countries">Click to send the selected countries (see your javascript console)</button> -->
-                
-                <!-- <p *ngIf="!countries">loading countries, please wait a second...</p> -->
-                <!-- <p *ngIf="countries">Debug info : live value of the 'countries' array:</p> -->
-            <!-- Name : phone : {{ searchPhone }} {{nameing}} -->
 
-            <div *ngIf="dataSort.length === 0; else loading;">
-                <div *ngFor="let item of phoneNameData.phones; let i = index;">
-                    <!-- i{{dataSort}} -->
-                    <!-- <input type="checkbox" name="item{{item.name}}" [(ngModel)]="phoneNameData.phone[i].release_year"> -->
-                  {{item.name}}
-                  {{item.brand}}
-                  {{item.release_year}}
-                  {{item.description}}
-                </div>
-              </div>
-              <ng-template #loading>
-                  <div *ngFor="let itemS of dataSort">
-                    
-                      {{itemS.name}}
-                      {{itemS.brand}}
-                      {{itemS.release_year}}
-                      {{itemS.description}}
-                    <!-- {{itemS.name}} -->
-                  </div>
-              </ng-template>
+<div class="container">
+    <div class="alert alert-dark custome-text" role="alert">
+      Phone Finder Apps
+      </div>
+    
+  <div class="row">
+    <!-- <div class="col-12"> -->
+      <div class="col-4">
+          <h1>Search Phone</h1>
+          <ng2-completer [(ngModel)]="searchPhone" (click)="test(searchPhone)" [datasource]="dataServicePhone" [minSearchLength]="0"></ng2-completer>
+      </div>
+      <div class="col-4">
+              <span>Brand</span>          
+          <div *ngFor="let country of phoneNameData.phones; let i = index;">
+              <input  (change)="sendCheckedCountries()" type="checkbox" name="country{{country.brand}}" [(ngModel)]="phoneNameData.phones[i].checked">
+              <label  for="country{{country.brand}}">{{country.brand}}</label>
+            </div>
+      </div>
+      <div class="col-4">
+        <span>Years</span>
+          <div *ngFor="let country of phoneNameData.phones; let i = index;">
+              <input  (change)="sendCheckedCountries()" type="checkbox" name="country{{country.release_year}}" [(ngModel)]="phoneNameData.phones[i].checked">
+              <label  for="country{{country.release_year}}">{{country.release_year}}</label>
+            </div>
+      </div>
+    <!-- </div> -->
+  </div>
+</div>
+<div class="container custome">
+  <h3>The Data</h3>
+    <div *ngIf="dataSort.length === 0; else loading;">
+        <div *ngFor="let item of phoneNameData.phones; let i = index;">
+        
+          {{item.name}}
+          {{item.brand}}
+          {{item.release_year}}
+          {{item.description}}
+        </div>
+      </div>
+      <ng-template #loading>
+          <div *ngFor="let itemS of dataSort">
+            
+              {{itemS.name}}
+              {{itemS.brand}}
+              {{itemS.release_year}}
+              {{itemS.description}}
+            <!-- {{itemS.name}} -->
+          </div>
+      </ng-template>
+</div>
 
-
-     
-                
-                <!-- <pre>{{ countries | json }}</pre> -->
-            <!-- this.dataSort = c;s -->
-
-<router-outlet></router-outlet>
+ 
